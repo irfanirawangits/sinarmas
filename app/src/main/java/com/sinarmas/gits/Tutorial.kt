@@ -16,5 +16,10 @@ class Tutorial : AppCompatActivity() {
             startActivity(tutorialIntent)
         }
 
+        skipTutorial.setOnClickListener{
+            val homeIntent = Intent(this, Home::class.java)
+            startActivity(homeIntent)
+        }
+
     }
 }

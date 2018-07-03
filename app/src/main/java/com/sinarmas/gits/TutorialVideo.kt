@@ -1,12 +1,12 @@
 package com.sinarmas.gits
 
+import android.content.Intent
 import android.net.Uri
 import android.opengl.Visibility
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import kotlinx.android.synthetic.main.activity_tutorial_video.*
-import kotlinx.android.synthetic.main.activity_tutorial_video.view.*
 
 class TutorialVideo : AppCompatActivity() {
 
@@ -21,6 +21,14 @@ class TutorialVideo : AppCompatActivity() {
         play.setOnClickListener {
             play.visibility = View.GONE
             videoPlayer.start()
+        }
+        skipTutorial.setOnClickListener{
+            val homeIntent = Intent(this, Home::class.java)
+            startActivity(homeIntent)
+        }
+        next.setOnClickListener{
+            val homeIntent = Intent(this, Home::class.java)
+            startActivity(homeIntent)
         }
 
     }

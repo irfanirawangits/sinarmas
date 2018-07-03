@@ -39,6 +39,7 @@
         android:layout_weight="0.1">
 
         <TextView
+            android:id="@+id/skipTutorial"
             android:text="@string/skip_tutorial_text"
             android:textColor="@color/text_color1"
             android:textStyle=""
