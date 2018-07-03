@@ -5,6 +5,7 @@
     <color name="colorAccent">#DA1F42</color>
 
     <color name="background">#6eb9b9b9</color>
+    <color name="background_popup">#76333333</color>
     <color name="sinarmas_red">#DA1F42</color>
     <color name="custom_tint">#D5D5D5</color>
     <color name="custom_tint1">#CACACA</color>

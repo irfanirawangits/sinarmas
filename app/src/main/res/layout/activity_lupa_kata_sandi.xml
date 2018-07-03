@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LupaKataSandi">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_edge"
+            android:layout_marginTop="24dp"
+            android:scaleType="fitXY"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:background="@drawable/button_effect"
+            android:contentDescription="@string/back"
+            android:src="@drawable/back_arrow"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/staticLockIcon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="96dp"
+            android:layout_marginEnd="294dp"
+            android:layout_marginBottom="400dp"
+            android:src="@drawable/lock_icon"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/lock_icon" />
+
+        <TextView
+            android:id="@+id/staticLupaKata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="19dp"
+            android:fontFamily="@font/avenir"
+            android:text="@string/lupa_kata_sandi_text"
+            android:textColor="@color/text_color1"
+            android:textSize="24sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/staticLockIcon"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="23dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/avenir"
+            android:text="Masukan email Anda untuk memulihkan\nkata sandi. Anda akan menerima email\nberisi instruksi."
+            android:textColor="@color/text_color2"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/staticLupaKata" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="25dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="11dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginBottom="210dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+                <EditText
+                    android:id="@+id/resetEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/custom_tint"
+                    android:fontFamily="@font/avenir"
+                    android:hint="@string/hint_reset_email"
+                    android:inputType="textWebEmailAddress"
+                    android:maxLines="1"
+                    android:textColorHint="@color/custom_tint1"
+                    tools:ignore="LabelFor"
+                    tools:targetApi="lollipop" />
+
+                <Button
+                    android:id="@+id/clear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginEnd="-20dp"
+                    android:layout_gravity="right|center_vertical"
+                    android:text="X"
+                    android:textSize="15sp"
+                    android:background="@drawable/button_effect"/>
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/ubahKataSandi"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="23dp"
+            android:layout_marginEnd="23dp"
+            android:layout_marginStart="23dp"
+            android:background="@drawable/rounded_button_background"
+            android:fontFamily="@font/avenir"
+            android:text="@string/ubah_kata_sandi_text"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

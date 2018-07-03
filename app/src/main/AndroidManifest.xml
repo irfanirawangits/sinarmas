@@ -18,7 +18,12 @@
         </activity>
         <activity android:name=".Login" />
         <activity android:name=".Register" />
-        <activity android:name=".PhoneVerification"></activity>
+        <activity android:name=".PhoneVerification" />
+        <activity android:name=".Tutorial" />
+        <activity android:name=".TutorialVideo" />
+        <activity android:name=".LupaKataSandi" />
+        <activity android:name=".popup.PopUpLupaKataSandi"
+            android:theme="@style/AppTheme.PopUp"/>
     </application>
 
 </manifest>

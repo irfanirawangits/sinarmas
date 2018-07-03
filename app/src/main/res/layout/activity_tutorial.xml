@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Tutorial">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="81dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/tutorial_text"
+        android:textStyle="bold"
+        android:textColor="@color/sinarmas_red"
+        android:textSize="36sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="127dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/video_app_usage_text"
+        android:textColor="@color/text_color1"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="280dp"
+        android:fontFamily="@font/avenir"
+        android:text="See How To Use\nSinarmas Hunter App"
+        android:textColor="@color/text_color1"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/seeTutorial"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="56dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginStart="23dp"
+        android:background="@drawable/rounded_button_background"
+        android:fontFamily="@font/avenir"
+        android:text="See Tutorial"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/skipTutorial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/screen_edge"
+        android:fontFamily="@font/avenir"
+        android:text="@string/skip_tutorial_text"
+        android:textAllCaps="false"
+        android:textColor="@color/sinarmas_red"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
