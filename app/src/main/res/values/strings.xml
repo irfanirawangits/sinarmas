@@ -17,4 +17,11 @@
     <string name="already_have_an_account">Already have an account?</string>
     <string name="register">Register</string>
     <string name="forgot_pasword_text">Forgot Password?</string>
+    <string name="registered_phone_number_text">An SMS with the verification code\nhas been sent to your registered phone number</string>
+    <string name="dummy_phone_number">+62 818 923 3221</string>
+    <string name="edit_number">edit number</string>
+    <string name="strip">-</string>
+    <string name="call_me_text">Call Me</string>
+    <string name="didn_t_receive_sms">Didn\'t receive SMS?</string>
+    <string name="submit">Submit</string>
 </resources>

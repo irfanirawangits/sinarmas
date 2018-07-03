@@ -15,6 +15,11 @@ class Register : AppCompatActivity() {
             finish()
         }
 
+        register.setOnClickListener {
+            val phoneVerifiIntent = Intent(this, PhoneVerification::class.java)
+            startActivity(phoneVerifiIntent)
+        }
+
         signIn.setOnClickListener{
             val signIntent = Intent(this, Login::class.java)
             startActivity(signIntent)

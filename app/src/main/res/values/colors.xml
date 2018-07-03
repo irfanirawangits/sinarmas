@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6eb9b9b9</color>
-    <color name="colorPrimaryDark">#505050</color>
+    <color name="colorPrimary">#62dccccc</color>
+    <color name="colorPrimaryDark">#62dccccc</color>
     <color name="colorAccent">#DA1F42</color>
 
     <color name="background">#6eb9b9b9</color>
@@ -9,5 +9,7 @@
     <color name="custom_tint">#D5D5D5</color>
     <color name="custom_tint1">#CACACA</color>
     <color name="text_color">#999999</color>
+    <color name="text_color1">#505050</color>
+    <color name="text_color2">#757575</color>
 
 </resources>
