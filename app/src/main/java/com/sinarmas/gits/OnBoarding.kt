@@ -36,5 +36,10 @@ class OnBoarding : AppCompatActivity() {
             startActivity(signIntent)
         }
 
+        signUp.setOnClickListener {
+            val signUpIntent = Intent(this, Register::class.java)
+            startActivity(signUpIntent)
+        }
+
     }
 }
