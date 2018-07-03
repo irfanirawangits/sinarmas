@@ -1,5 +1,6 @@
 package com.sinarmas.gits
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
@@ -9,6 +10,7 @@ import com.ogaclejapan.smarttablayout.SmartTabLayout
 import com.sinarmas.gits.adapter.CustomPagerAdapter
 import kotlinx.android.synthetic.main.activity_on_boarding.*
 import kotlinx.android.synthetic.main.custom_dot_indicator.*
+import java.util.*
 
 class OnBoarding : AppCompatActivity() {
 
@@ -28,6 +30,11 @@ class OnBoarding : AppCompatActivity() {
         imageList.add(R.drawable.tes_image)
         pager.adapter = CustomPagerAdapter(this, imageList)
         smartTab.setViewPager(pager)
+
+        signIn.setOnClickListener {
+            val signIntent = Intent(this, Login::class.java)
+            startActivity(signIntent)
+        }
 
     }
 }

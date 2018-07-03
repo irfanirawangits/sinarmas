@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".Login">
+
+    <ImageView
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="471dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/sinarmas_hunter_app"
+        android:scaleType="fitXY"
+        android:src="@drawable/sinarmas_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="320dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/sinarmas_hunter_app"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/email_text"
+        android:textColor="@color/text_color"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toTopOf="@id/email"
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:ignore="SmallSp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="300dp"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="23dp"
+        android:backgroundTint="@color/custom_tint"
+        android:inputType="textWebEmailAddress"
+        android:maxLines="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="LabelFor"
+        tools:targetApi="lollipop" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="27dp"
+        android:backgroundTint="@color/custom_tint"
+        android:fontFamily="@font/avenir"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:textColorHint="@color/custom_tint1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/email"
+        tools:ignore="LabelFor"
+        tools:targetApi="lollipop" />
+
+    <Button
+        android:id="@+id/signIn"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="154dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginStart="23dp"
+        android:background="@drawable/rounded_button_background"
+        android:fontFamily="@font/avenir"
+        android:text="@string/sign_in"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:text="@string/or"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/signIn" />
+
+    <LinearLayout
+        android:id="@+id/signInFacebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="79dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="-7dp"
+            android:layout_weight="0.1"
+            android:contentDescription="@string/log_in_facebook"
+            android:src="@drawable/facebook_icon" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.9"
+            android:text="@string/log_in_facebook"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/staticText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/screen_edge"
+        android:layout_marginStart="92dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/don_t_have_an_account"
+        android:textAllCaps="false"
+        android:textColor="@color/text_color"
+        android:textSize="12sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/signUp" />
+
+    <TextView
+        android:id="@+id/signUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/screen_edge"
+        android:layout_marginEnd="92dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/avenir"
+        android:text="@string/sign_up"
+        android:textAllCaps="false"
+        android:textColor="@color/sinarmas_red"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/staticText"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
