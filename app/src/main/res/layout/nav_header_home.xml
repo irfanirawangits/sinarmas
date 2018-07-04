@@ -3,14 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/nav_header_height"
+    android:layout_height="160dp"
     android:background="@android:color/white"
     android:gravity="bottom"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imageView"
@@ -18,6 +14,7 @@
         android:layout_height="80dp"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:layout_marginStart="26dp"
         app:srcCompat="@drawable/profile_icon" />
 
     <TextView
@@ -25,6 +22,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/nav_header_title"
+        android:layout_marginStart="26dp"
         android:textSize="14sp"
         android:textColor="@color/sinarmas_red"
         android:textStyle="bold" />
@@ -35,6 +33,7 @@
         android:layout_height="wrap_content"
         android:textSize="10sp"
         android:textColor="@color/text_color1"
+        android:layout_marginStart="26dp"
         android:text="@string/nav_header_subtitle"
         tools:ignore="SmallSp" />
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/iconSidebar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.1"
+            android:contentDescription="@string/sinarmas_logo"
+            app:srcCompat="@drawable/notification_icon" />
+
+        <TextView
+            android:id="@+id/textSidebar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:layout_marginStart="14dp"
+            android:gravity="center_vertical"
+            android:textSize="13sp"
+            android:textColor="@color/text_color1"
+            android:text="@string/sinarmas_hunter_app"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
