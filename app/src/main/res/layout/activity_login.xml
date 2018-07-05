@@ -91,6 +91,7 @@
         android:textStyle="bold"
         android:fontFamily="@font/avenir"
         android:text="@string/forgot_pasword_text"
+        android:background="@drawable/button_effect"
         android:textColor="@color/sinarmas_red"
         android:textSize="12sp"
         app:layout_constraintRight_toRightOf="parent"

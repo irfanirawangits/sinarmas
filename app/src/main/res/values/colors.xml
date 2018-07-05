@@ -13,5 +13,9 @@
     <color name="text_color1">#505050</color>
     <color name="text_color2">#757575</color>
     <color name="text_color3">#DADADA</color>
+    <color name="text_color4">#27AE60</color>
+    <color name="text_color5">#2D9CDB</color>
+    <color name="text_color6">#4f4f4f</color>
+    <color name="bottom_sheet_shadow_color">#40000000</color>
 
 </resources>

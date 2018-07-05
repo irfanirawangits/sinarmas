@@ -1,13 +1,12 @@
 package com.sinarmas.gits
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.design.widget.NavigationView
-import android.support.design.widget.TabLayout
+import android.support.design.widget.*
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import android.support.v4.view.GravityCompat
@@ -15,12 +14,14 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
-import android.widget.TabHost
-import android.widget.Toast
+import android.view.View
+import android.widget.AdapterView
 import com.sinarmas.gits.adapter.CustomListSidebar
+import com.sinarmas.gits.adapter.CustomListSurvey
 import com.sinarmas.gits.adapter.HomePagerAdapter
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
+import kotlinx.android.synthetic.main.bottom_sheet.*
 import kotlinx.android.synthetic.main.content_home.*
 
 class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
@@ -48,6 +49,50 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         customSidebar.adapter = customAdapter
 
         nav_view.setNavigationItemSelectedListener(this)
+        val sheetBehavior = BottomSheetBehavior.from(bottomSheet)
+        sheetBehavior.isHideable = false
+        sheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                fabLocation.visibility = View.GONE
+                fabSurvey.visibility = View.GONE
+            }
+
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when (newState) {
+                    BottomSheetBehavior.STATE_EXPANDED -> {
+                        fabLocation.visibility = View.GONE
+                        fabSurvey.visibility = View.GONE
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            buttonBottomSheet.setImageDrawable(getDrawable(R.drawable.down_arrow))
+                        } else {
+                            buttonBottomSheet.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.down_arrow))
+                        }
+                    }
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+                        fabLocation.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                        fabLocation.visibility = View.VISIBLE
+                        fabSurvey.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                        fabSurvey.visibility = View.VISIBLE
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            buttonBottomSheet.setImageDrawable(getDrawable(R.drawable.bar_icon))
+                        } else {
+                            buttonBottomSheet.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.bar_icon))
+                        }
+                    }
+                    BottomSheetBehavior.STATE_HIDDEN -> {
+                        fabLocation.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                        fabLocation.visibility = View.VISIBLE
+                        fabSurvey.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                        fabSurvey.visibility = View.VISIBLE
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            buttonBottomSheet.setImageDrawable(getDrawable(R.drawable.bar_icon))
+                        } else {
+                            buttonBottomSheet.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.bar_icon))
+                        }
+                    }
+                }
+            }
+        })
 
         homeTab.addTab(homeTab.newTab().setText(getString(R.string.tugas_text)))
         homeTab.addTab(homeTab.newTab().setText(getString(R.string.insentif_text)))
@@ -65,6 +110,19 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
                 override fun onTabSelected(tab: TabLayout.Tab) {
                     homePager.currentItem = tab.position
+                    if (tab.text == getString(R.string.tugas_text)) {
+                        bottomSheet.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                        bottomSheet.visibility = View.VISIBLE
+                        sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                        fabLocation.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                        fabLocation.visibility = View.VISIBLE
+                        fabSurvey.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                        fabSurvey.visibility = View.VISIBLE
+                    } else {
+                        bottomSheet.visibility = View.GONE
+                        fabLocation.visibility = View.GONE
+                        fabSurvey.visibility = View.GONE
+                    }
                 }
 
             })
@@ -74,6 +132,43 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
                     Manifest.permission.ACCESS_COARSE_LOCATION),
                     RECORD_REQUEST_CODE)
         }
+
+        buttonBottomSheet.setOnClickListener {
+            if (sheetBehavior.state != BottomSheetBehavior.STATE_EXPANDED) {
+                sheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    buttonBottomSheet.setImageDrawable(getDrawable(R.drawable.down_arrow))
+                } else {
+                    buttonBottomSheet.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.down_arrow))
+                }
+            } else{
+                sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    buttonBottomSheet.setImageDrawable(getDrawable(R.drawable.bar_icon))
+                } else {
+                    buttonBottomSheet.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.bar_icon))
+                }
+            }
+        }
+
+        if (Tugas.dummyTokoTerpilih.isNotEmpty()) {
+            totalTersurvey.setOnClickListener {
+                val tersurveyIntent = Intent(this, Tersurvey::class.java)
+                startActivity(tersurveyIntent)
+            }
+        }
+
+        if (Tugas.dummyToko.isNotEmpty()) {
+                tersediaUntukSurvey.text = getString(R.string.tersedia_untuk_string, Tugas.dummyToko.size.toString())
+                listSurvey.adapter = CustomListSurvey(this, Tugas.dummyToko)
+                listSurvey.setOnItemClickListener { parent, view, position, id ->
+                    val detailTaskIntent = Intent(this, DetailTask::class.java)
+                    detailTaskIntent.putExtra("fromPoint", Tugas.myPosition)
+                    detailTaskIntent.putExtra("toPoint", Tugas.dummyToko[position])
+                    startActivity(detailTaskIntent)
+            }
+        }
+
     }
 
     private fun checkPermissions() : Boolean {
@@ -130,4 +225,5 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
 }

@@ -1,14 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Insentif">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/staticInsentifText"
+        android:text="@string/insentif_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/text_color1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="27dp" />
+
+    <TextView
+        android:id="@+id/pointInsentif"
+        android:text="15 Poin"
+        android:textSize="20sp"
+        android:textColor="@color/text_color6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticInsentifText"
+        android:layout_marginTop="7dp"
+        android:layout_marginStart="19dp"/>
+
+    <LinearLayout
+        android:id="@+id/tukarkanPoin"
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:background="@drawable/custom_border"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        app:layout_constraintTop_toBottomOf="@id/pointInsentif"
+        android:orientation="horizontal"
+        android:focusable="true">
+
+        <TextView
+            android:text="@string/tukarkan_poin_insentif_text"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/text_color6"
+            android:layout_marginStart="11dp"/>
+
+        <ImageView
+            android:src="@drawable/list_next_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="11dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/riwayatPoin"
+        android:layout_width="254dp"
+        android:layout_height="37dp"
+        android:background="@drawable/rounded_button1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="123dp"
+        android:textSize="15sp"
+        android:textAllCaps="false"
+        android:text="@string/riwayat_poin_text"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@android:color/white"
+        android:layout_marginStart="22dp"
+        tools:ignore="SmallSp"
+        tools:targetApi="m" />
+
+    <ListView
+        android:id="@+id/listPoin"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginTop="160dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/riwayatPoin" />
 
-</FrameLayout>
+
+</android.support.constraint.ConstraintLayout>

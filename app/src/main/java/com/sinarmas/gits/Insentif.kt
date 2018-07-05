@@ -7,22 +7,14 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.ListView
+import com.sinarmas.gits.adapter.CustomListPoin
+import kotlinx.android.synthetic.main.fragment_insentif.*
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [Insentif.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [Insentif.newInstance] factory method to
- * create an instance of this fragment.
- *
- */
 class Insentif : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -39,8 +31,22 @@ class Insentif : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_insentif, container, false)
+        val view = inflater.inflate(R.layout.fragment_insentif, container, false)
+
+        val tukarkanPoin = view.findViewById(R.id.tukarkanPoin) as LinearLayout
+        tukarkanPoin.setOnClickListener {
+
+        }
+
+        val listPoin = view.findViewById(R.id.listPoin) as ListView
+        if (Tugas.dummyTokoTerpilih.isNotEmpty()) {
+            listPoin.adapter = CustomListPoin(activity!!, Tugas.dummyTokoTerpilih)
+            listPoin.setOnItemClickListener { parent, view, position, id ->
+
+            }
+        }
+
+        return view
     }
 
     // TODO: Rename method, update argument and hook method into UI event

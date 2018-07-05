@@ -21,5 +21,9 @@ class LupaKataSandi : AppCompatActivity() {
             startActivity(popUpIntent)
         }
 
+        clear.setOnClickListener {
+            resetEmail.setText("")
+        }
+
     }
 }

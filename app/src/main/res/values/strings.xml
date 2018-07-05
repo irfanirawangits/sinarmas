@@ -45,9 +45,22 @@
     <string name="action_settings">Settings</string>
     <string name="sinarmas_logo">sinarmas logo</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_maps">Map</string>
     <string name="tugas_text">Tugas</string>
     <string name="insentif_text">Insentif</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="leaderboard_text">Leaderboard</string>
+    <string name="tersurvey_text">Tersurvey</string>
+    <string name="diproses_text">Diproses</string>
+    <string name="tersedia_text">Tersedia</string>
+    <string name="lihat_leaderboard_text">Lihat Leaderboard</string>
+    <string name="tersedia_untuk_string">Tersedia untuk di Survey (%S)</string>
+    <string name="survey_ke_string">Survey "%S"</string>
+    <string name="riwayat_poin_text">Riwayat Poin</string>
+    <string name="tukarkan_poin_insentif_text">Tukarkan Poin Insentif</string>
+    <string name="title_activity_detail_task">Map</string>
 </resources>
