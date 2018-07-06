@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddSurveyLocation">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/staticLokasiLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/custom_border">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_edge"
+            android:scaleType="fitXY"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:background="@drawable/button_effect"
+            android:contentDescription="@string/back"
+            android:src="@drawable/back_arrow"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:text="@string/survey_lokasi_text"
+            android:textColor="@color/text_color8"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="25dp"/>
+
+        <TextView
+            android:id="@+id/waktu"
+            android:text="4 min"
+            android:textColor="@color/text_color8"
+            android:layout_marginEnd="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/staticStoreIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/store_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="90dp"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/storeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="88dp"
+        android:backgroundTint="@color/custom_tint"
+        android:fontFamily="@font/avenir"
+        android:textSize="15sp"
+        android:hint="@string/store_name"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColorHint="@color/custom_tint1"
+        app:layout_constraintLeft_toRightOf="@id/staticStoreIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="LabelFor"
+        tools:targetApi="lollipop" />
+
+    <ImageView
+        android:id="@+id/staticOwnerIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/owner_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticStoreIcon"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/storeOwner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/custom_tint"
+        android:fontFamily="@font/avenir"
+        android:textSize="15sp"
+        android:hint="@string/store_owner_text"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColorHint="@color/custom_tint1"
+        app:layout_constraintLeft_toRightOf="@id/staticStoreIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/storeName"
+        tools:ignore="LabelFor"
+        tools:targetApi="lollipop" />
+
+    <ImageView
+        android:id="@+id/staticAddressIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/address_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticOwnerIcon"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/storeAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/custom_tint"
+        android:fontFamily="@font/avenir"
+        android:textSize="15sp"
+        android:hint="@string/address_text"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColorHint="@color/custom_tint1"
+        app:layout_constraintLeft_toRightOf="@id/staticStoreIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/storeOwner"
+        tools:ignore="LabelFor"
+        tools:targetApi="lollipop" />
+
+    <ImageView
+        android:id="@+id/imageAddress"
+        android:src="@drawable/dummy_image_maps"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/storeAddress"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/staticCategoryIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/category_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageAddress"
+        android:layout_marginTop="22dp"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/storeCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/custom_tint"
+        android:fontFamily="@font/avenir"
+        android:textSize="15sp"
+        android:hint="@string/category_text"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColorHint="@color/custom_tint1"
+        app:layout_constraintLeft_toRightOf="@id/staticStoreIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageAddress"
+        tools:ignore="LabelFor"
+        tools:targetApi="lollipop" />
+
+    <ImageView
+        android:id="@+id/staticPhonIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/phone_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticCategoryIcon"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/storePhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/custom_tint"
+        android:fontFamily="@font/avenir"
+        android:textSize="15sp"
+        android:hint="@string/phone_text"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColorHint="@color/custom_tint1"
+        app:layout_constraintLeft_toRightOf="@id/staticStoreIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/storeCategory"
+        tools:ignore="LabelFor"
+        tools:targetApi="lollipop" />
+
+
+    <ImageView
+        android:id="@+id/staticWebsiteIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/website_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticPhonIcon"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/storeWebsite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/custom_tint"
+        android:fontFamily="@font/avenir"
+        android:textSize="15sp"
+        android:hint="@string/website_text"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColorHint="@color/custom_tint1"
+        app:layout_constraintLeft_toRightOf="@id/staticStoreIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/storePhone"
+        tools:ignore="LabelFor"
+        tools:targetApi="lollipop" />
+
+    <ImageView
+        android:id="@+id/staticHoursIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/hours_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticWebsiteIcon"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="20dp"/>
+
+    <EditText
+        android:id="@+id/storeHours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="22dp"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/custom_tint"
+        android:fontFamily="@font/avenir"
+        android:textSize="15sp"
+        android:hint="@string/hours_text"
+        android:inputType="text"
+        android:maxLines="1"
+        android:textColorHint="@color/custom_tint1"
+        app:layout_constraintLeft_toRightOf="@id/staticStoreIcon"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/storeWebsite"
+        tools:ignore="LabelFor"
+        tools:targetApi="lollipop" />
+
+    <Button
+        android:id="@+id/done"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginStart="23dp"
+        android:background="@drawable/rounded_button_background"
+        android:fontFamily="@font/avenir"
+        android:text="@string/done_text"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

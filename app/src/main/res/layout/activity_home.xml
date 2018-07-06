@@ -34,9 +34,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:layout_marginStart="20dp"
                 android:divider="@null"
-                android:dividerHeight="0dp" />
+                android:dividerHeight="0dp"
+                android:drawSelectorOnTop="true"/>
 
             <ImageView
                 android:layout_width="90dp"

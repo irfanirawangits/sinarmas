@@ -47,7 +47,12 @@
         <activity android:name=".Tersurvey" />
         <activity
             android:name=".DetailTask"
-            android:label="@string/title_activity_detail_task"></activity>
+            android:label="@string/title_activity_detail_task" />
+        <activity android:name=".AddSurveyLocation" />
+        <activity android:name=".Profile" />
+        <activity android:name=".Pengaturan" />
+        <activity android:name=".Notifikasi" />
+        <activity android:name=".MembershipInfo"></activity>
     </application>
 
 </manifest>

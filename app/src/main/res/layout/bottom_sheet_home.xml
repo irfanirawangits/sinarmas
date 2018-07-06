@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/bottomSheet"
+    android:id="@+id/bottomSheetHome"
     android:layout_width="match_parent"
     android:layout_height="542dp"
     app:behavior_hideable="true"

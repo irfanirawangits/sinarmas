@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MembershipInfo">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/staticMembershipLayout"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/custom_border">
+
+        <ImageButton
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/screen_edge"
+            android:scaleType="fitXY"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:background="@drawable/button_effect"
+            android:contentDescription="@string/back"
+            android:src="@drawable/back_arrow"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:text="@string/poin_saya_text"
+            android:textColor="@color/text_color2"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="25dp"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#FAFAFA"
+        app:layout_constraintTop_toBottomOf="@id/staticMembershipLayout"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/staticPoinLayout"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@drawable/rounded_layout1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp">
+
+            <TextView
+                android:id="@+id/staticTextPoin"
+                android:text="@string/poin_anda_text"
+                android:textSize="12sp"
+                android:textColor="@android:color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="14dp"/>
+
+            <TextView
+                android:id="@+id/jumlahPoin"
+                android:text="426"
+                android:textColor="@color/sinarmas_red"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/staticTextPoin"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/cashout"
+                android:background="@drawable/rounded_button1"
+                android:text="@string/cashout_text"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:layout_width="96dp"
+                android:layout_height="27dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_marginEnd="11dp"/>
+            
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/staticKatalogText"
+            android:text="@string/katalog_voucher_text"
+            android:textSize="16sp"
+            android:textColor="@color/text_color1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/staticPoinLayout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="11dp"/>
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/staticKatalogText"
+            android:layout_marginTop="5dp">
+
+        </GridView>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

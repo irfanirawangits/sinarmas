@@ -19,7 +19,7 @@
         app:tabTextColor="@color/text_color3"
         app:tabSelectedTextColor="@color/sinarmas_red"
         app:tabGravity="fill"
-        android:theme="@style/AppTheme"/>
+        app:tabTextAppearance="@style/TabLayoutBold"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/homePager"

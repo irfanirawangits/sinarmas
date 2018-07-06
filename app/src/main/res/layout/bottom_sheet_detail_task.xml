@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheetDetailTask"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="150dp"
+    android:elevation="15dp"
+    android:background="@drawable/rounded_layout1"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+    tools:targetApi="lollipop">
+
+    <ImageView
+        android:id="@+id/buttonBottomSheet"
+        android:src="@drawable/bar_icon"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_effect"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="9dp"/>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/headerBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_border">
+
+        <TextView
+            android:id="@+id/namaToko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/text_color1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="22dp"
+            android:layout_marginTop="29dp" />
+
+        <TextView
+            android:id="@+id/alamatToko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="52dp"
+            android:textSize="12sp"
+            android:layout_marginStart="22dp"
+            tools:ignore="SmallSp"
+            tools:targetApi="m" />
+
+        <ImageView
+            android:id="@+id/imageIcon"
+            android:text="@string/insentif_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/text_color1"
+            android:src="@drawable/image_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginEnd="19dp"
+            android:layout_marginTop="27dp" />
+        
+        <Button
+            android:id="@+id/arrived"
+            android:layout_width="118dp"
+            android:layout_height="27dp"
+            android:text="@string/i_ve_arrived_text"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            android:background="@drawable/rounded_button_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="33dp"/>
+
+        <Button
+            android:id="@+id/mulaiSurvey"
+            android:layout_width="322dp"
+            android:layout_height="39dp"
+            android:background="@drawable/rounded_button_background"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="87dp"
+            android:textSize="15sp"
+            android:textAllCaps="false"
+            android:text="Mulai Survey (32 min)"
+            android:gravity="center"
+            android:paddingStart="70dp"
+            android:paddingEnd="70dp"
+            android:drawableStart="@drawable/compas_mini_icon"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="17dp"
+            android:layout_marginEnd="21dp"
+            tools:ignore="SmallSp"
+            tools:targetApi="m" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ListView
+        android:id="@+id/listRoute"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerBottomSheet"/>
+
+</android.support.constraint.ConstraintLayout>

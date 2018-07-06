@@ -5,6 +5,8 @@
     <color name="colorAccent">#DA1F42</color>
 
     <color name="background">#6eb9b9b9</color>
+    <color name="background1">#F2F2F2</color>
+    <color name="background2">#556080</color>
     <color name="background_popup">#76333333</color>
     <color name="sinarmas_red">#DA1F42</color>
     <color name="custom_tint">#D5D5D5</color>
@@ -16,6 +18,10 @@
     <color name="text_color4">#27AE60</color>
     <color name="text_color5">#2D9CDB</color>
     <color name="text_color6">#4f4f4f</color>
+    <color name="text_color7">#BDBDBD</color>
+    <color name="text_color8">#202020</color>
+    <color name="text_color9">#5E5E5E</color>
+    <color name="text_color10">#A2A2A2</color>
     <color name="bottom_sheet_shadow_color">#40000000</color>
 
 </resources>

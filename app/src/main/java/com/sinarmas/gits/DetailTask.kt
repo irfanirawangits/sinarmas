@@ -3,7 +3,9 @@ package com.sinarmas.gits
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.BottomSheetBehavior
 import android.support.v4.content.ContextCompat
+import android.view.View
 import com.google.android.gms.maps.CameraUpdateFactory
 
 import com.google.android.gms.maps.GoogleMap
@@ -14,6 +16,8 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.DirectionsApi
 import com.google.maps.GeoApiContext
+import kotlinx.android.synthetic.main.activity_detail_task.*
+import kotlinx.android.synthetic.main.bottom_sheet_detail_task.*
 
 class DetailTask : AppCompatActivity(), OnMapReadyCallback {
 
@@ -29,9 +33,79 @@ class DetailTask : AppCompatActivity(), OnMapReadyCallback {
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
+        back.setOnClickListener {
+            finish()
+        }
+
         fromPoint = intent.getStringExtra("fromPoint")
         toPoint = intent.getStringExtra("toPoint")
 
+        namaToko.text = toPoint.split(",")[0]
+        alamatToko.text = toPoint.split(",")[1]
+        collapsedView()
+        val sheetBehavior = BottomSheetBehavior.from(bottomSheetDetailTask)
+        sheetBehavior.isHideable = false
+        sheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback(){
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                fabLocation.visibility = View.GONE
+            }
+
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when (newState) {
+                    BottomSheetBehavior.STATE_EXPANDED -> {
+                        expandedView()
+                    }
+                    BottomSheetBehavior.STATE_COLLAPSED -> {
+                        collapsedView()
+                    }
+                    BottomSheetBehavior.STATE_HIDDEN -> {
+                        collapsedView()
+                    }
+                }
+            }
+
+        })
+
+        buttonBottomSheet.setOnClickListener {
+            if (sheetBehavior.state != BottomSheetBehavior.STATE_EXPANDED) {
+                sheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+            } else{
+                sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            }
+        }
+
+    }
+
+    private fun collapsedView() {
+        fabLocation.animate().scaleX(1f).scaleY(1f).setDuration(10).start()
+        fabLocation.visibility = View.VISIBLE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            buttonBottomSheet.setImageDrawable(getDrawable(R.drawable.bar_icon))
+        } else {
+            buttonBottomSheet.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.bar_icon))
+        }
+        listRoute.visibility = View.GONE
+        arrived.visibility = View.GONE
+        imageIcon.animate().scaleX(1f).scaleY(1f).setDuration(10).start()
+        imageIcon.visibility = View.VISIBLE
+        mulaiSurvey.animate().scaleX(1f).scaleY(1f).setDuration(10).start()
+        mulaiSurvey.visibility = View.VISIBLE
+    }
+
+    private fun expandedView() {
+        fabLocation.visibility = View.GONE
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            buttonBottomSheet.setImageDrawable(getDrawable(R.drawable.down_arrow))
+        } else {
+            buttonBottomSheet.setImageDrawable(ContextCompat.getDrawable(applicationContext, R.drawable.down_arrow))
+        }
+        imageIcon.visibility = View.GONE
+        mulaiSurvey.visibility = View.GONE
+        listRoute.animate().scaleX(1f).scaleY(1f).setDuration(10).start()
+        listRoute.visibility = View.VISIBLE
+        arrived.animate().scaleX(1f).scaleY(1f).setDuration(10).start()
+        arrived.visibility = View.VISIBLE
     }
 
     override fun onMapReady(googleMap: GoogleMap) {

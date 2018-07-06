@@ -15,13 +15,12 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
 import com.sinarmas.gits.adapter.CustomListSidebar
 import com.sinarmas.gits.adapter.CustomListSurvey
 import com.sinarmas.gits.adapter.HomePagerAdapter
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
-import kotlinx.android.synthetic.main.bottom_sheet.*
+import kotlinx.android.synthetic.main.bottom_sheet_home.*
 import kotlinx.android.synthetic.main.content_home.*
 
 class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener,
@@ -40,16 +39,8 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
         setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayShowTitleEnabled(false)
 
-        val toggle = ActionBarDrawerToggle(
-                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        drawer_layout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        val customAdapter = CustomListSidebar(this)
-        customSidebar.adapter = customAdapter
-
         nav_view.setNavigationItemSelectedListener(this)
-        val sheetBehavior = BottomSheetBehavior.from(bottomSheet)
+        val sheetBehavior = BottomSheetBehavior.from(bottomSheetHome)
         sheetBehavior.isHideable = false
         sheetBehavior.setBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
             override fun onSlide(bottomSheet: View, slideOffset: Float) {
@@ -96,41 +87,51 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
 
         homeTab.addTab(homeTab.newTab().setText(getString(R.string.tugas_text)))
         homeTab.addTab(homeTab.newTab().setText(getString(R.string.insentif_text)))
+        homePager.adapter = HomePagerAdapter(supportFragmentManager, homeTab.tabCount)
+        homeTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
 
-        if (checkPermissions()) {
-            homePager.adapter = HomePagerAdapter(supportFragmentManager, homeTab.tabCount)
-            homeTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-                override fun onTabReselected(tab: TabLayout.Tab?) {
+            }
 
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                homePager.currentItem = tab.position
+                if (tab.text == getString(R.string.tugas_text)) {
+                    bottomSheetHome.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                    bottomSheetHome.visibility = View.VISIBLE
+                    sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+                    fabLocation.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                    fabLocation.visibility = View.VISIBLE
+                    fabSurvey.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
+                    fabSurvey.visibility = View.VISIBLE
+                } else {
+                    bottomSheetHome.visibility = View.GONE
+                    fabLocation.visibility = View.GONE
+                    fabSurvey.visibility = View.GONE
                 }
+            }
 
-                override fun onTabUnselected(tab: TabLayout.Tab?) {
+        })
+        homePager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(homeTab))
 
-                }
-
-                override fun onTabSelected(tab: TabLayout.Tab) {
-                    homePager.currentItem = tab.position
-                    if (tab.text == getString(R.string.tugas_text)) {
-                        bottomSheet.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
-                        bottomSheet.visibility = View.VISIBLE
-                        sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
-                        fabLocation.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
-                        fabLocation.visibility = View.VISIBLE
-                        fabSurvey.animate().scaleX(1f).scaleY(1f).setDuration(0).start()
-                        fabSurvey.visibility = View.VISIBLE
-                    } else {
-                        bottomSheet.visibility = View.GONE
-                        fabLocation.visibility = View.GONE
-                        fabSurvey.visibility = View.GONE
-                    }
-                }
-
-            })
-            homePager.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(homeTab))
-        } else{
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION,
-                    Manifest.permission.ACCESS_COARSE_LOCATION),
-                    RECORD_REQUEST_CODE)
+        val toggle = ActionBarDrawerToggle(
+                this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
+        val customAdapter = CustomListSidebar(this)
+        customSidebar.adapter = customAdapter
+        customSidebar.setOnItemClickListener { parent, view, position, id ->
+            when(position) {
+                0 -> startActivity(Intent(this, MembershipInfo::class.java))
+                1 -> homePager.currentItem = 1
+                2 ->  homePager.currentItem = 1
+                3 -> startActivity(Intent(this, Notifikasi::class.java))
+                4 -> startActivity(Intent(this, Tutorial::class.java))
+            }
+            drawer_layout.closeDrawers()
         }
 
         buttonBottomSheet.setOnClickListener {
@@ -167,6 +168,14 @@ class Home : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListene
                     detailTaskIntent.putExtra("toPoint", Tugas.dummyToko[position])
                     startActivity(detailTaskIntent)
             }
+        }
+
+        myProfile.setOnClickListener {
+            startActivity(Intent(this, Profile::class.java))
+        }
+
+        fabSurvey.setOnClickListener {
+            startActivity(Intent(this, AddSurveyLocation::class.java))
         }
 
     }

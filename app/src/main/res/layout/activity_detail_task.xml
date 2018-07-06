@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailTask" />
+    tools:context=".DetailTask" >
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/back_arrow"
+        android:backgroundTint="@android:color/white"
+        android:layout_marginTop="13dp"
+        android:layout_marginStart="19dp"
+        app:borderWidth="0dp"
+        tools:targetApi="lollipop"
+        android:layout_gravity="top|start"
+        app:fabSize="mini"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/location_icon"
+        android:backgroundTint="@android:color/white"
+        android:layout_marginTop="450dp"
+        android:layout_marginEnd="17dp"
+        app:borderWidth="0dp"
+        tools:targetApi="lollipop"
+        android:layout_gravity="top|end"
+        app:fabSize="mini"/>
+
+    <include layout="@layout/bottom_sheet_detail_task" />
+
+</android.support.design.widget.CoordinatorLayout>

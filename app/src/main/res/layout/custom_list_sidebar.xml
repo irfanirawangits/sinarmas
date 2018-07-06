@@ -17,6 +17,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.1"
+            android:layout_marginStart="20dp"
             android:contentDescription="@string/sinarmas_logo"
             app:srcCompat="@drawable/notification_icon" />
 
