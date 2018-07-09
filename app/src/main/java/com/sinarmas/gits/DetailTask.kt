@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomSheetBehavior
 import android.support.v4.content.ContextCompat
+import android.view.LayoutInflater
 import android.view.View
 import com.google.android.gms.maps.CameraUpdateFactory
 
@@ -16,6 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.PolylineOptions
 import com.google.maps.DirectionsApi
 import com.google.maps.GeoApiContext
+import com.sinarmas.gits.adapter.CustomListDetailRoute
 import kotlinx.android.synthetic.main.activity_detail_task.*
 import kotlinx.android.synthetic.main.bottom_sheet_detail_task.*
 
@@ -74,6 +76,17 @@ class DetailTask : AppCompatActivity(), OnMapReadyCallback {
                 sheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
             }
         }
+
+        mulaiSurvey.setOnClickListener {
+            sheetBehavior.state = BottomSheetBehavior.STATE_EXPANDED
+        }
+
+        val route = arrayOf("1", "2", "3")
+        val headerView = LayoutInflater.from(this).inflate(R.layout.header_list_detail_route, null, false)
+        val footerView = LayoutInflater.from(this).inflate(R.layout.footer_list_detail_route, null, false)
+        listRoute.addHeaderView(headerView)
+        listRoute.addFooterView(footerView)
+        listRoute.adapter = CustomListDetailRoute(this, route)
 
     }
 

@@ -23,8 +23,8 @@
 
         <ImageView
             android:id="@+id/staticLockIcon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_marginStart="18dp"
             android:layout_marginTop="96dp"
             android:layout_marginEnd="294dp"
@@ -32,6 +32,7 @@
             android:src="@drawable/lock_icon"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:tint="@color/sinarmas_red"
             android:contentDescription="@string/lock_icon" />
 
         <TextView

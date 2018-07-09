@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="66dp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:id="@+id/staticIconTrack"
+        android:layout_width="5dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/staticIconStart"
+        android:layout_marginStart="28.5dp"
+        android:background="@color/sinarmas_red"/>
+
+    <ImageView
+        android:id="@+id/staticIconStart"
+        android:layout_width="20dp"
+        android:layout_height="27dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/staticIconTrack"
+        android:layout_marginStart="21dp"
+        android:layout_marginBottom="10dp"
+        android:contentDescription="@string/sinarmas_logo"
+        app:srcCompat="@drawable/store_position_icon" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toRightOf="@id/staticIconSurvey"
+        android:layout_marginStart="64dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textTokoTujuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:text="Store Location"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/textAlamatTokoTujuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="12sp"
+            android:textColor="#BDBDBD"
+            android:text="Toko Sebelah, JL. Diponegoro"
+            tools:ignore="SmallSp" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
